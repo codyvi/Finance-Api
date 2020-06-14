@@ -1,6 +1,6 @@
-Something something github api repo
+Api para conectar MongoDB con AlexaSDK.
 
-Versión live del sitio web en [Heroku](https://voice-stats-20.herokuapp.com/)
+Versión live del sitio web en [Heroku]()
 
 <!-- USO DE ARCHIVOS -->
 ## Archivos importantes
