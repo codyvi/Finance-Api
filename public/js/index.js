@@ -19,7 +19,7 @@ function init(){
 
 			for ( let i = 0; i < responseJSON.length; i ++ ){
 				$('.listOfVPs').append(`<li>
-				${responseJSON[i].nombre} - Servicios presupuesto: ${responseJSON[i].ServiciosPresupuesto} 
+				${responseJSON[i].name} - Servicios presupuesto: ${responseJSON[i].ServiciosPresupuesto} 
 										- Servicios Gastados: ${responseJSON[i].ServiciosGastado}</li>`)
 			}
 		})

@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 
 let finanzasSchema = mongoose.Schema({
-	nombre: { type : String },
+	name: { type : String },
 	ServiciosPresupuesto: { type : Number },
 	ServiciosGastado: {type : Number},
 	ServiciosPlanificado: {type : Number},
