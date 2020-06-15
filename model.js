@@ -4,14 +4,50 @@ let bcrypt = require('bcryptjs');
 mongoose.Promise = global.Promise;
 
 
-let ejercicioSchema = mongoose.Schema({
+let finanzasSchema = mongoose.Schema({
 	nombre: { type : String },
-	nivel: { type : Number },
-	tiempoInicio: {type : Number},
-	tiempoFinal: {type : Number},
-	tiempoAcumulado: {type : Number},
-	diasAcumulados: {type : Number},
-	experiencia: {type : String}
+	ServiciosPresupuesto: { type : Number },
+	ServiciosGastado: {type : Number},
+	ServiciosPlanificado: {type : Number},
+	ConsultoríaPresupuesto: {type : Number},
+	ConsultoríaGastado: {type : Number},
+	ConsultoríaPlanificado: {type : Number},
+	ServiciosPúblicosPresupuesto: { type : Number },
+	ServiciosPúblicosGastado: {type : Number},
+	ServiciosPúblicosPlanificado: {type : Number},
+	ServiciosExternosPresupuesto: {type : Number},
+	ServiciosExternosGastado: {type : Number},
+	ServiciosExternosPlanificado: {type : Number},
+	GastosDeViajesPresupuesto: { type : Number },
+	GastosDeViajesGastado: {type : Number},
+	GastosDeViajesPlanificado: {type : Number},
+	OtrosGastosPresupuesto: {type : Number},
+	OtrosGastosGastado: {type : Number},
+	OtrosGastosPlanificado: {type : Number},
+	GastosOperativosPresupuesto: { type : Number },
+	GastosOperativosGastado: {type : Number},
+	GastosOperativosPlanificado: {type : Number},
+	SueldosYSalariosPresupuesto: {type : Number},
+	SueldosYSalariosGastado: {type : Number},
+	SueldosYSalariosPlanificado: {type : Number},
+	TotalPresupuestoOpex: { type : Number },
+	TotalGastadoOpex: {type : Number},
+	TotalPlanificadoOpex: {type : Number},
+	PresupuestoAñoanterior: {type : Number},
+	GastadoAñoAnterior: {type : Number},
+	ConsultoríaPresupuestoProyecto: {type : Number},
+	ConsultoríaGastadoProyecto: {type : Number},
+	GastosOperativosPlanificado: {type : Number},
+	ConsultoríaPlanificadoProyecto: {type : Number},
+	SueldosYSalariosPresupuestoProyecto: {type : Number},
+	SueldosYSalariosGastadoProyecto: {type : Number},
+	OtrosGastosDeProyectoPresupuestoProyecto: { type : Number },
+	OtrosGastosDeproyectoGastadoProyecto: {type : Number},
+	OtrosGastosDeProyectoPlanificadoProyecto: {type : Number},
+	ComprometidoALaFecha: {type : Number},
+	TotalPresupuestoProyecto: {type : Number},
+	TotalGastadoProyecto: {type : Number},
+	TotalPlanificadoProyecto: {type : Number}
 });
 
 // let userSchema = mongoose.Schema({
@@ -22,7 +58,7 @@ let ejercicioSchema = mongoose.Schema({
 // 				 required : true }
 // })
 
-let Vicepresidencia = mongoose.model( 'ejercicios', ejercicioSchema );
+let Vicepresidencia = mongoose.model( 'finanzas', finanzasSchema );
 // let User = mongoose.model( 'User', userSchema );
 
 // let UserList = {
@@ -81,53 +117,7 @@ let VPList = {
 					throw Error( error );
 				});
 	}
-	,
-	 postTiempoInicio : function( id, tiempoInicio ){
-		 console.log(id);
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoInicio: tiempoInicio}, (err) => {
-			if (err) {
-				throw Error(error);
-			}
-		 });
-	 }
-	 ,
-	 postTiempoFinal: function(id, tiempoFinal){
-		console.log(id);
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoFinal: tiempoFinal}, (err, doc) =>{
-			 if(err){
-				 throw Error(error);
-			 }
-			 return doc
-		 });
-	 }, 
-	 postNivel: function(id, nivel){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {nivel: nivel}, (err) =>{
-			 if(err){
-				 throw Error(error);
-			 }
-		 });
-	 },
-	 postTiempoAcum: function(id, tiempoAcumulado){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoAcumulado: tiempoAcumulado}, (err) =>{
-			 if(err){
-				 throw Error(error);
-			 }
-		 });
-	 },
-	 postDiasAcum: function(id, diasAcum){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {diasAcumulados: diasAcum}, (err) => {
-			 if(err){
-				 throw Error(error);
-			 }
-		 });
-	 },
-	 postExperiencia: function(id, exp){
-		 return Vicepresidencia.findOneAndUpdate({nombre:id}, {experiencia: exp}, (err) =>{
-			 if(err){
-				 throw Error(error);
-			 }
-		 });
-	 }
+	
 };
 
 module.exports = { VPList };

@@ -62,7 +62,7 @@ app.use( morgan( "dev" ) );
 // 		});
 // });
 
-app.get( "/api/ejercicio", ( req, res, next ) => {
+app.get( "/api/finanzas", ( req, res, next ) => {
 	VPList.get()
 		.then( vicepresidencia => {
 			return res.status( 200 ).json( vicepresidencia );
@@ -76,140 +76,6 @@ app.get( "/api/ejercicio", ( req, res, next ) => {
 		});
 });
 
-app.post("/api/EjercicioAn2", jsonParser, (req, res, next) =>{
-	let tiempoFinal = req.body.tiempoFinal;
-	let id = req.body.id;
-
-	VPList.postTiempoFinal(id, tiempoFinal)
-	.then( persona =>{
-		return res.status( 201 ).json({
-			message: "Se cambio el valor",
-			status: 201,
-			Persona: persona
-		});
-	})
-	.catch( error => {
-		res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-		return res.status( 500 ).json({
-			 status : 500,
-			 message : "No pudimos accesar a la base de datos. Intenta más tarde."
-		 });
-	});
-});
-
-app.post("/api/EjercicioAn3", jsonParser, (req, res, next) =>{
-	let nivel = req.body.nivel; //Body en el apiutil de alexa
-	let id = req.body.id;
-	// let id = req.body.id;
-
-	VPList.postNivel(id,nivel)
-		.then( persona => {
-			return res.status( 201 ).json({
-				message : "Se cambio el valor",
-				status : 201,
-				Persona : persona
-		   });
-	   })
-	   .catch( error => {
-		   res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-		   return res.status( 500 ).json({
-				status : 500,
-				message : "No pudimos accesar a la base de datos. Intenta más tarde."
-			});
-		});
-})
-
-app.post("/api/EjercicioAn4", jsonParser, (req, res, next) =>{
-	let tiempoAcum = req.body.tiempoAcumulado; //Body en el apiutil de alexa
-	let id = req.body.id;
-	// let id = req.body.id;
-
-	VPList.postTiempoAcum(id,tiempoAcum)
-		.then( persona => {
-			return res.status( 201 ).json({
-				message : "Se cambio el valor",
-				status : 201,
-				Persona : persona
-		   });
-	   })
-	   .catch( error => {
-		   res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-		   return res.status( 500 ).json({
-				status : 500,
-				message : "No pudimos accesar a la base de datos. Intenta más tarde."
-			});
-		});
-})
-
-app.post("/api/EjercicioAn5", jsonParser, (req, res, next) =>{
-	let dAcum = req.body.diasAcum; //Body en el apiutil de alexa
-	let id = req.body.id;
-	// let id = req.body.id;
-
-	VPList.postDiasAcum(id,dAcum)
-		.then( persona => {
-			return res.status( 201 ).json({
-				message : "Se cambio el valor",
-				status : 201,
-				Persona : persona
-		   });
-	   })
-	   .catch( error => {
-		   res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-		   return res.status( 500 ).json({
-				status : 500,
-				message : "No pudimos accesar a la base de datos. Intenta más tarde."
-			});
-		});
-})
-
-app.post("/api/EjercicioAn6", jsonParser, (req, res, next) =>{
-	let exp = req.body.exp; //Body en el apiutil de alexa
-	let id = req.body.id;
-	// let id = req.body.id;
-
-	VPList.postExperiencia(id,exp)
-		.then( persona => {
-			return res.status( 201 ).json({
-				message : "Se cambio el valor",
-				status : 201,
-				Persona : persona
-		   });
-	   })
-	   .catch( error => {
-		   res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-		   return res.status( 500 ).json({
-				status : 500,
-				message : "No pudimos accesar a la base de datos. Intenta más tarde."
-			});
-		});
-})
-
-
-
-app.post( "/api/EjerecioAn", jsonParser, ( req, res, next ) => {
-	console.log(req.body);
-	let inicio = req.body.tiempoInicio; //Body en el apiutil de alexa
- 	let id = req.body.id;
- 	// let id = req.body.id;
-
- 	VPList.postTiempoInicio(id,inicio)
- 		.then( persona => {
- 			return res.status( 201 ).json({
- 				message : "Se cambio el valor",
- 				status : 201,
- 				Persona : persona
-			});
-		})
-		.catch( error => {
-			res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
-			return res.status( 500 ).json({
- 				status : 500,
- 				message : "No pudimos accesar a la base de datos. Intenta más tarde."
- 			});
-		 });
-		
- });
 
 let server;
 
