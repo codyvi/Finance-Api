@@ -47,7 +47,8 @@ let finanzasSchema = mongoose.Schema({
 	ComprometidoALaFecha: {type : Number},
 	TotalPresupuestoProyecto: {type : Number},
 	TotalGastadoProyecto: {type : Number},
-	TotalPlanificadoProyecto: {type : Number}
+	TotalPlanificadoProyecto: {type : Number},
+	experiencia: {type : String}
 });
 
 // let userSchema = mongoose.Schema({
@@ -116,6 +117,13 @@ let VPList = {
 				.catch( error => {
 					throw Error( error );
 				});
+	},
+	postExperiencia: function(id, exp){
+		return Vicepresidencia.findOneAndUpdate({nombre:id}, {experiencia: exp}, (err) =>{
+			if(err){
+				throw Error(error);
+			}
+		});
 	}
 	
 };
