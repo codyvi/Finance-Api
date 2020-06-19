@@ -119,7 +119,7 @@ let VPList = {
 				});
 	},
 	postExperiencia: function(id, exp){
-		return Vicepresidencia.findOneAndUpdate({nombre:id}, {experiencia: exp}, (err) =>{
+		return Vicepresidencia.findOneAndUpdate({name:id}, {experiencia: exp}, (err) =>{
 			if(err){
 				throw Error(error);
 			}
